@@ -26,11 +26,11 @@ var Blog = mongoose.model("Blog", blogSchema);
 
 
 //CREATING AN INSTANCE OF A BLOG (for testing purposes)
-// Blog.create({
-//     title: "Test blog", 
-//     image: "https://unsplash.com/photos/D9XX3Cjoh2s",
-//     body: "Hello this is a blog post"
-// });
+Blog.create({
+    title: "Test blog", 
+    image: "https://images.unsplash.com/photo-1465588042420-47a53c2d0320?dpr=2&auto=format&fit=crop&w=767&h=483&q=80&cs=tinysrgb&crop=",
+    body: "Hello this is a blog post"
+});
 
 
 
