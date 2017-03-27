@@ -26,11 +26,11 @@ var Blog = mongoose.model("Blog", blogSchema);
 
 
 //CREATING AN INSTANCE OF A BLOG (for testing purposes)
-Blog.create({
-    title: "Test blog", 
-    image: "https://images.unsplash.com/photo-1465588042420-47a53c2d0320?dpr=2&auto=format&fit=crop&w=767&h=483&q=80&cs=tinysrgb&crop=",
-    body: "Hello this is a blog post"
-});
+// Blog.create({
+//     title: "Test blog", 
+//     image: "https://images.unsplash.com/photo-1465588042420-47a53c2d0320?dpr=2&auto=format&fit=crop&w=767&h=483&q=80&cs=tinysrgb&crop=",
+//     body: "Hello this is a blog post"
+// });
 
 
 
@@ -48,6 +48,25 @@ app.get("/blogs", function(req, res){
             //We're passing the data of whatever comes back from Blog.find()
         }
     });
+});
+
+//NEW Route 
+app.get("/blogs/new", function(req, res){
+    res.render("new");
+});
+
+//CREATE route
+app.post("/blogs", function(req, res){
+    //create blog
+    Blog.create(req.body.blog, function(err, newBlog){
+        if(err){
+            res.render("new");
+        }else{
+            //then redirect to the index
+            res.redirect("/blogs");
+        }
+    });
+    
 });
 
 
