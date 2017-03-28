@@ -71,6 +71,7 @@ app.post("/blogs", function(req, res){
 //SHOW route
 app.get("/blogs/:id", function(req, res){
     Blog.findById(req.params.id, function(err, foundBlog){
+        console.log(req.params.id);
         if(err){
             res.redirect("/blogs");
         }else{
@@ -79,6 +80,19 @@ app.get("/blogs/:id", function(req, res){
     })
 });
 
+
+//EDIT route 
+app.get("/blogs/:id/edit", function(req, res) {
+    //Just like the show route
+    Blog.findById(req.params.id, function(err, foundBlog){
+        console.log(req.params.id);
+       if(err){
+           res.redirect("/blogs");
+       }else{
+           res.render("edit", {blog: foundBlog});
+       }
+    });
+});
 
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("SERVER IS RUNNING"); 
