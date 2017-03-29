@@ -1,0 +1,4 @@
+[submodule "blogApp"]
+	path = blogApp
+	url = https://github.com/armandordorica/blogApp.git
+	branch = master
